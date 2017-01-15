@@ -1,0 +1,7 @@
+9/13/2011
+Using detection part from plusTipTracker, since it only takes the bit depth as input and 
+can account for particles of different sizes and intensity.
+The tracking part of of that program is tailored to the dynamics of microtubule growth, 
+so it's not apropriate in my case. For that reason I'm using the latest version of u-track 
+to do the tracking.
+ 
