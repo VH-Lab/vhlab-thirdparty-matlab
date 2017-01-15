@@ -37,7 +37,7 @@ minI = min(img(:));
 imgDenoised = significantCoefficientDenoising(img, S);
 
 
-res = img - imgDenoised; % residuals
+res = double(img) - imgDenoised; % residuals
 sigma_res0 = std(res(:));
 
 delta = 1;
@@ -87,7 +87,7 @@ end
 
 
 % rescale denoised image
-imgDenoised = (imgDenoised-min(imgDenoised(:))) * (maxI-minI) / (max(imgDenoised(:))-min(imgDenoised(:)));
+imgDenoised = (imgDenoised-min(imgDenoised(:))) * double((maxI-minI)) / (max(imgDenoised(:))-min(imgDenoised(:)));
 
 imgDenoised = mask.*imgDenoised;
 localMax = locmax2d(imgDenoised, [9 9]);
