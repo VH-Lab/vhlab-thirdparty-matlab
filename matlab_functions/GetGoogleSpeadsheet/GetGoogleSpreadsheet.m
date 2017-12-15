@@ -15,7 +15,6 @@ function result = GetGoogleSpreadsheet(DOCID)
 % DM, Jan 2013
 %
 
-
 loginURL = 'https://www.google.com'; 
 csvURL = ['https://docs.google.com/spreadsheet/ccc?key=' DOCID '&output=csv&pref=2'];
 
@@ -38,9 +37,12 @@ end
 
 function data = parseCsv(data)
 % splits data into individual lines
-error('fix this so it only reads \r\n')
-data = textscan(data,'%s','whitespace','\n');
-data = data{1};
+data = split(data,sprintf('\r\n'));  % sdv 2017-12-15
+ % data = textscan(data,'%s','whitespace','\n'); % this does not work in general: cannot process data that has single \n within cells
+if isempty(data{end}), % trim any empty last line  % sdv 2017-12-15
+	data = data(1:end-1); 
+end;
+
 for ii=1:length(data)
    %for each line, split the string into its comma-delimited units
    %the '%q' format deals with the "quoting" convention appropriately.
