@@ -38,6 +38,7 @@ end
 
 function data = parseCsv(data)
 % splits data into individual lines
+error('fix this so it only reads \r\n')
 data = textscan(data,'%s','whitespace','\n');
 data = data{1};
 for ii=1:length(data)
