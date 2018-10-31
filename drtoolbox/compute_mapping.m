@@ -375,8 +375,8 @@ function [mappedA, mapping] = compute_mapping(A, type, no_dims, varargin)
             
         case {'PCA', 'KLM'}
             % Compute PCA mapping
-			[mappedA, mapping] = pca(A, no_dims);
-            mapping.name = 'PCA';
+			[mappedA, mapping] = drt_pca(A, no_dims);
+            mapping.name = 'DRT_PCA';
             
         case {'SPCA', 'SimplePCA'}
             % Compute PCA mapping using Hebbian learning approach

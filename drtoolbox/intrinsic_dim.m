@@ -190,7 +190,7 @@ function no_dims = intrinsic_dim(X, method)
                         
         case 'EigValue'
             % Perform PCA
-            [mappedX, mapping] = pca(X, size(X, 2));
+            [mappedX, mapping] = drt_pca(X, size(X, 2));
             lambda = mapping.lambda ./ sum(mapping.lambda);
             
             % Plot eigenvalues

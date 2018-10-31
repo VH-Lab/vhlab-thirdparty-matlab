@@ -1,7 +1,7 @@
-function [mappedX, mapping] = pca(X, no_dims)
-%PCA Perform the PCA algorithm
+function [mappedX, mapping] = drt_pca(X, no_dims)
+%DRT_PCA Perform the PCA algorithm
 %
-%   [mappedX, mapping] = pca(X, no_dims)
+%   [mappedX, mapping] = drt_pca(X, no_dims)
 %
 % The function runs PCA on a set of datapoints X. The variable
 % no_dims sets the number of dimensions of the feature points in the 
@@ -19,8 +19,12 @@ function [mappedX, mapping] = pca(X, no_dims)
 % want for non-commercial purposes. However, it is appreciated if you 
 % maintain the name of the original author.
 %
+% See also: PCA (Matlab stats toolbox)
+%
 % (C) Laurens van der Maaten, Delft University of Technology
+%
 
+  % sdv 2018-10-31 changed name to drt_pca to avoid conflict with Matlab pca function
 
     if ~exist('no_dims', 'var')
         no_dims = 2;
