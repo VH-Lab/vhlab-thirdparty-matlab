@@ -13,14 +13,14 @@ mypath = fileparts(which('vhlabthirdpartyInit'));
 % paths confusing anyone
 
 pathsnow = path;
-pathsnow_cell = split(pathsnow,pathsep);
+pathsnow_cell = strsplit(pathsnow,pathsep);
 matches = contains(pathsnow_cell, 'vhlab-thirdparty-matlab');
 pathstoremove = char(strjoin(pathsnow_cell(matches),pathsep));
 rmpath(pathstoremove);
 
   % add everything except '.git' directories
 pathstoadd = genpath(mypath);
-pathstoadd_cell = split(pathstoadd,pathsep);
+pathstoadd_cell = strsplit(pathstoadd,pathsep);
 matches=(~contains(pathstoadd_cell,'.git'));
 pathstoadd = char(strjoin(pathstoadd_cell(matches),pathsep));
 addpath(pathstoadd);
