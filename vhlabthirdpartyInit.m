@@ -26,5 +26,9 @@ pathstoadd = char(strjoin(pathstoadd_cell(matches),pathsep));
 addpath(pathstoadd);
 
 javaaddpath([mypath filesep 'java']);
+D = dir([mypath filesep 'java' filesep '*.jar']);
+for i=1:numel(D),
+    javaaddpath([mypath filesep 'java' filesep D(i).name]);
+end;
 
 
