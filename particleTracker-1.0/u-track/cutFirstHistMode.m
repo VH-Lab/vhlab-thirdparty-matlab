@@ -150,7 +150,7 @@ if doHistogram
     % Do discrete histogram first, find max-bin, and then look for the
     % maximum in the continuous histogram only up to the end of the
     % maxBin+0.5
-    [counts, bins] = histogram(data);
+    [counts, bins] = histogram_ut(data);
     % if there is only one bin, we have a problem. Therefore, force at
     % least 3 bins.
     if length(bins)<3
@@ -162,7 +162,7 @@ if doHistogram
 
 
     % continuous histogram
-    [counts,bins,sp] = histogram(data,'smooth');
+    [counts,bins,sp] = histogram_ut(data,'smooth');
     nBins = length(bins);
 
     % find maximum between bin 1 and the one with maxBinValue
@@ -221,12 +221,12 @@ if doHistogram
         
         % check for axes (and figure!) to plot into
         if ~isempty(axesH)
-            histogram(axesH,data)
+            histogram_ut(axesH,data)
             fig = get(axesH,'Parent');
         else
             fig =figure;
             set(fig,'NextPlot','add')
-            histogram(data)
+            histogram_ut(data)
             axesH = gca;
         end
         ax(1) = axesH;

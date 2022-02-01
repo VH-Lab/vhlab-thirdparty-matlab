@@ -1,11 +1,11 @@
-function [N,X,sp] = histogram(varargin)
-% HISTOGRAM generates a histogram using the "optimal" number of bins
+function [N,X,sp] = histogram_ut(varargin)
+% HISTOGRAM_UT generates a histogram using the "optimal" number of bins
 %
-% If called with no output argument, histogram plots into the current axes
+% If called with no output argument, histogram_ut plots into the current axes
 %
-% SYNOPSIS [N,X,sp] = histogram(data,factor,normalize)
-%          [...] = histogram(data,'smooth')
-%          [...] = histogram(axesHandle,...)
+% SYNOPSIS [N,X,sp] = histogram_ut(data,factor,normalize)
+%          [...] = histogram_ut(data,'smooth')
+%          [...] = histogram_ut(axesHandle,...)
 %
 % INPUT    data: vector of input data
 %          factor: (opt) factor by which the bin-widths are multiplied
@@ -140,7 +140,7 @@ if factor ~= -1
     else
         % not a discrete distribution
         if nData < 20
-            warning('HISTOGRAM:notEnoughDataPoints','Less than 20 data points!')
+            warning('HISTOGRAM_UT:notEnoughDataPoints','Less than 20 data points!')
             nBins = ceil(nData/4);
         else
             

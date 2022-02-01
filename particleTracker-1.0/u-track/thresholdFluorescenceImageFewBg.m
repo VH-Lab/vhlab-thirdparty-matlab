@@ -54,7 +54,7 @@ end
 imageIn = double(imageIn);
 
 %Get histogram, using Jonas' automatic bin number selection & smoothing
-[~,~,histSpline] = histogram(imageIn(:),'smooth');
+[~,~,histSpline] = histogram_ut(imageIn(:),'smooth');
 
 %Find the location of extrema in the histogram
 histExtrema = fnzeros(fnder(histSpline));

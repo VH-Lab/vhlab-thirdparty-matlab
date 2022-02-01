@@ -371,7 +371,7 @@ if currentFrame ~= 1 && any(diagnostics == currentFrame)
         %         % make the plot
         %         figure
         %         bar(n,x1,'stack')
-        histogram(linkingDistances,[],0);
+        histogram_ut(linkingDistances,[],0);
         xlabel('Linking distance');
         ylabel('Counts');
     catch
